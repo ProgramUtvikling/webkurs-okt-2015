@@ -1,4 +1,11 @@
-require(["Shop", "Home"], function(Shop, Home){
+requirejs.config({
+    paths: {
+        magellan: "../bower_components/magellan/magellan"
+    }
+});
+
+
+require(["Shop", "Home"], function (Shop, Home) {
   	"use strict";
 
 	var noPlaceLikeHome = new Home("Hjem", 59.922315, 10.49115, "A+M+M+M+H");

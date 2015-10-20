@@ -1,5 +1,5 @@
 ﻿
-define(function(){
+define(["magellan"], function(magellan){
     "use strict";
 
     function Place(title, latitude, longitude) {
@@ -8,7 +8,9 @@ define(function(){
         this.longitude = longitude;
     }
     Place.prototype.toString = function () {
-        return this.title + " (pos: " + this.longitude + " " + this.longitude + ")";
+        var lat = magellan(this.latitude).latitude().toDMS()
+        var lon = magellan(this.longitude).longitude().toDMS()
+        return this.title + " (pos: " + lat + " " + lon + ")";
     }
 
     return Place;    
