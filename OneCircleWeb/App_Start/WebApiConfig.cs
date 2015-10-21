@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
@@ -10,6 +12,11 @@ namespace OneCircleWeb
         public static void Register(HttpConfiguration config)
         {
             // Web API configuration and services
+            var settings = config.Formatters.JsonFormatter.SerializerSettings;
+            settings.TypeNameHandling = TypeNameHandling.All;
+            settings.Formatting = Formatting.Indented;
+            settings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+
 
             // Web API routes
             config.MapHttpAttributeRoutes();

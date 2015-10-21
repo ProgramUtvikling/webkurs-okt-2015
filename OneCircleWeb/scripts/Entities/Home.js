@@ -1,4 +1,4 @@
-define(["Place"], function(Place){
+define(["Entities/Place"], function (Place) {
     "use strict";
     
     function Home(title, latitude, longitude, whoLivesHere) {
